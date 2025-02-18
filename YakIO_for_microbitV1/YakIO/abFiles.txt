@@ -1,0 +1,62 @@
+The YakIO Library File List
+
+YakIO is an open source library and example compilation toolchain which 
+is intended to enable the creation C++ programs for the BBC micro:bit
+microcontroller.
+
+Include             - a directory containing all of the header files for 
+                      the YakIO Library. User written code will #include
+                      these file as necessary.
+                      
+Objects             - a directory containing the compiled .o object files 
+                      of the YakIO Library. The user code links against the 
+                      files in this directory.
+                      
+Source              - a directory containing the declarations and member
+                      function definitions for the YakIO library classes.
+
+aaReadMe.txt        - a file containing information about the code in the 
+                      YakIO library. If you wish to recompile the YakIO
+                      library you should read this file - it contains 
+                      valuable, relevant, information.
+                      
+abFiles.txt         - this file.
+
+CompileYakIO.bat    - a Windows batch script to compile the YakIO Library
+                      to .o object files. These are later linked with user
+                      written code to provide functionality there.
+
+libgcc.a            - Basic ARM Cortex CPU's such as are used on the 
+                      microbit do not contain opcodes for certain types 
+                      of instructions (such as division). This is a 
+                      standard C++ library which needs to be linked
+                      with so the C++ compiler can do that sort of thing 
+                      in software. 
+                      
+                      Typically, this library is linked in by placing a flag
+                      on the call to the linker which identifies where it 
+                      can be found in a folder of standard C++ libraries. 
+                      However, it was felt that that getting that right 
+                      was just one more thing which could "break" a  
+                      compilation tool chain for the inexperienced.
+                      
+                      So, the libgcc.a file was just copied out and placed 
+                      in the YakIO directory. You can edit the CompileProgram.bat  
+                      file in the User (Example) directories and do it right 
+                      if you wish. Beware! There are lots of libgcc.a files
+                      to choose from in the many directories associated 
+                      with the arm-none-eabi-gcc compiler. This particular 
+                      libgcc.a file came from the
+                      
+                      ....\lib\gcc\arm-none-eabi\4.9.3\armv6-m
+                      
+                      sub folder. Lots of the others simply do NOT work.
+
+microbit.ld         - The linker script. Used by the CompileProgram.bat
+                      scripts in the User (Example) directories to link
+                      the YakIO libraries with the user written code. Not 
+                      normally user editable.
+
+
+
+

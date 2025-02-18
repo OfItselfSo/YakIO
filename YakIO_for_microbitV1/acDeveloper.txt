@@ -1,0 +1,101 @@
+Developer Notes for the YakIO Library
+
+The YakIO Library is free and open source and released under the terms of
+the MIT License. 
+
+The home page for the YakIO library can be found at:
+   http://www.OfItselfSo.com/YakIO
+
+YakIO is under active development and contributions and bug reports are 
+actively sought. If you wish to contribute please do be mindful of the 
+following considerations.
+
+RESPECT COPYRIGHT
+The YakIO Library is released under the MIT license. You are welcome to 
+use open source code for your contribution but please do not include
+copy and pasted code which is offered under a license incompatible with
+the MIT license.
+
+In particular, do not use the code from the "Bare metal micro:bit" book
+authored by Mike Spivey. This is an excellent and informative book and is 
+an authoritative source - however, the example code which accompanies it
+is still held under full copyright and that restriction is absolutely to 
+be respected. 
+
+GIVE CREDIT
+If you include code or ideas from other open sources in your contribution
+please try to include a line attributing credit in the code comments. 
+
+COMMENT EXTENSIVELY
+OK. You have been programming embedded systems since Moses was a baby and 
+have strong opinions that the code should speak for itself. Well, in this
+case, let's work on the assumption that many of the people using the library
+may not be especially strong C++ programmers or, if they are, they are new
+to embedded systems. Let's try to spare the inexperienced some pain and, for 
+once, really go out of our way to explain things - even the obvious. It 
+just might not be so simple to them. In other words, let's provide more than 
+just code. Let's make the YakIO Library a teachable experience and indulge 
+in a bit of knowledge transfer.
+
+REDUCE COMPLEXITY
+Keep the code simple - really - as mind numbingly simple as it is possible  
+to make it. You can see this in effect in the YakIO_TIMER, YakIO_GPIO etc
+files. When the code wants to read or write a peripheral register it just 
+adds the base address and offset together right there and then. There can 
+be no doubt what is happening and hopefully the inexperienced will appreciate 
+this. The compiler takes care of the math anyways so there is no runtime hit. 
+
+Similarly, avoid complex boolean logic as you manipulate bits into position.
+Sure, you _have_ to do this. But let's try to make it as simple as possible.
+ 
+Complex nested macros and defines are also a thing that run many people 
+onto the rocks. Many inexperienced programmers, at their stage of skill, 
+cannot easily get their minds around what is happening and do the mental
+search and replace needed to understand the code. So, yes, use defines 
+(and macros if you must) but let's try to keep them simple.
+
+STYLE NOTES
+Let's keep the style as consistent as we can. Have a look at the existing
+code in the YakIO Library and examples to see how it is currently done. In 
+specific:
+
+1) Each peripheral should be in its own class. The class should be named
+   YakIO_<PERIPHERAL_NAME_FROM_THE_REFERENCE_MANUAL_IN_CAPS>. 
+   
+2) Each class should be in it's own .h and .cpp file. The name of the file
+   should be the same as the name of the class but with the .h or .cpp
+   extension. No code unrelated to the class, should be in these files.
+  
+3) Functions should start with an upper case letter and use CamelCase.
+   For example: "MyMemberFunction()" not "myMember_Function()".
+   
+4) Variables should start with a lower case letter and use CamelCase.
+   For example: "totalCount" not "Total_count".
+   
+5) Class include files (.h) should only contain definitions. All class member 
+   function code should be located in the associated .cpp file. 
+   
+6) If you create code for a new peripheral, place the defines for the 
+   register offsets in that classes header file. Do not create a separate
+   section for them in YakIO.h - we want to keep that as clean as possible. 
+   
+7) Avoid creating non-member functions. Yes, feel free to add a few useful
+   ones to YakIO_Utils, but that is really the only place they should exist.
+   Everything else should be defined in a class. We want to avoid the "C"
+   and stick with as pure "C++" as is possible.
+   
+8) If you create some really great new functionality, strongly consider 
+   creating an example for it. Since YakIO does not have any real API
+   documentation yet, the examples are the only thing which can show people
+   how to use your code.   
+   
+9) Observe the extensive use of enums to encapsulate associated numeric 
+   parameters rather than the use of a series of defines. The YakIO_Timer.h
+   code is an illustrative example. 
+   
+10)Please note the structure of the comments above the existing class 
+   function definitions and reproduce this in your code. One day some 
+   software might be run over the library to produce automated API documentation.
+   
+   
+ 

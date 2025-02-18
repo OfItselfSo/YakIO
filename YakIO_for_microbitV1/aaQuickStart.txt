@@ -1,0 +1,78 @@
+Getting Started with YakIO C++ Bare metal Programming for the BBC microbit
+
+This is a set of quick "Get You Started" instructions. The information in
+this file is discussed in greater detail the aaReadMe.txt file in the 
+YakIO sub-directory and also in the aaReadMe.txt files in each of the example
+directories.
+
+You use the YakIO library and example code entirely at your own risk! 
+See the disclaimers on the home page, in the code and in each aaReadMe.txt
+file.
+
+0) This branch of the YakIO Library is only for the BBC microbit V1. It
+   will NOT work on the V2 version. The V2 uses a different CPU and there 
+   are significant differences.
+
+1) These instructions assume you are running on a Windows 10 or 11 system.
+   If that is not the case, see the aaReadMe.txt files for more information.
+
+2) You need a cross-compiler. The one used for development was the Windows 
+   installer below. There are later versions, but this was the one used 
+   for development.
+     
+        gcc-arm-none-eabi-4_9-2015q2-20150609-win32.exe 
+        
+     available from the GNU Arm Embedded Toolchain website
+     
+        https://launchpad.net/gcc-arm-embedded/+download
+        
+3) The arm-none-eabi-gcc.exe compiler and arm-none-eabi-objcopy.exe 
+   converter from step 2 should be on the path. If you get it right, the following 
+   command should always work from the Windows command prompt or powershell:
+     
+   > arm-none-eabi-gcc.exe --version
+     
+        arm-none-eabi-gcc.exe (GNU Tools for ARM Embedded Processors) 4.9.3 20150529 (release) [ARM/embedded-4_9-branch revision 224288]
+        Copyright (C) 2014 Free Software Foundation, Inc.
+
+4) There is a suite of example code. These are in directories starting with 
+   digits (like 01_, 02_ etc). The YakIO library is in the YakIO directory.
+   
+5) Each example directory has an aaReadMe.txt file which explains what the 
+   example code does. You really should read this file. Each is specific to 
+   the example code in that directory - they are not all the same.
+   
+6) The examples form a kind of tutorial on how to use the YakIO library. It
+   is suggested that you review each one in order. The information presented 
+   is cumulative - concepts that are discussed in a particular example may be 
+   used in later examples without much discussion. 
+      
+7) The example directories should be at the same level as the YakIO library. 
+
+         SomeDir
+           |
+           YakIO_for_microbitV1
+             |
+             | YakIO
+             |   | Include
+             |   | Objects              
+             |   | Source              
+             |
+             | 01_Blinky
+             | 02_BetterBlinky
+             | 03_Danger
+             | ..... 
+             
+8) Review the aaReadMe.txt, Main.cpp and Main.h files in the 01_Blinky 
+   example directory in order to understand what that example code does.
+   
+9) If you have downloaded this source from the GitHub Repo, all of the examples
+   should already be built. You can just copy the existing .hex file onto 
+   your microbit and have it run.
+                
+10)Open a windows command or powershell terminal at the top of the example
+   directory you are interested in. Run the CompileProgram.bat command. 
+   This will compile up a new .hex file in that directory for you. Drag 
+   the .hex file onto the microbit to see it execute.
+   
+11)You are now bare metal programming the BBC microbit in C++. Good Luck.

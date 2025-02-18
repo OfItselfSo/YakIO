@@ -1,0 +1,34 @@
+The 02_BetterBlinky Example File List
+
+YakIO is an open source library and example compilation toolchain which 
+is intended to enable the creation C++ programs for the BBC micro:bit
+microcontroller.
+
+List of Files in the 02_BetterBlinky example directory and what they do:
+                    
+aaReadMe.txt        - a file containing information about the 02_BetterBlinky
+                      example code. You SHOULD read this file. The examples
+                      actually form a sequential tutorial on how to use
+                      the YakIO library. This file discusses the purpose
+                      of the 02_BetterBlinky example and provides a list 
+                      of the techniques demonstrated in it that you might
+                      wish to look out for. 
+                      
+abFiles.txt         - this file
+
+CompileProgram.bat  - a Windows batch script to compile up a user program
+                      and link it with the YakIO object files. See the 
+                      comments in this file for more information.
+                                            
+Main.cpp            - Contains the member functions of the Main class. This
+                      is part of the code the user edits and forms the user 
+                      written part of the program.
+                      
+Main.h              - Contains the definitions of the Main class. This
+                      is part of the code the user edits and forms the user 
+                      written part of the program.
+                      
+program.cpp         - A file containing some connecting code that is the 
+                      first thing called by the YakIO library. It 
+                      instantiates and launches the main class of the 
+                      user written software. Not normally user editable.

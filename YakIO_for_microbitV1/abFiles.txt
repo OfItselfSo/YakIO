@@ -1,0 +1,45 @@
+The YakIO Library File List
+
+YakIO is an open source library and example compilation toolchain which 
+is intended to enable the creation C++ programs for the BBC micro:bit
+microcontroller.
+
+01_Blinky           - Directory containing example code - start with this one. 
+                      See the aaReadMe.txt in this directory for more 
+                      information.
+            
+02_BetterBlinky     - Directory containing example code See the aaReadMe.txt 
+                      in this directory for more information.
+                      
+03_Danger           - Directory containing example code See the aaReadMe.txt 
+                      in this directory for more information.
+                      
+04_GPIO_Out         - Directory containing example code See the aaReadMe.txt 
+                      in this directory for more information.
+                      
+05_GPIO_In          - Directory containing example code See the aaReadMe.txt 
+                      in this directory for more information.
+                      
+06_deBounce         - Directory containing example code See the aaReadMe.txt 
+                      in this directory for more information.
+                      
+YakIO               - The Directory containing the YakIO Library. It contains
+                      multiple subdirectories. See the the aaReadMe.txt 
+                      in this directory for more information.
+                      
+aaQuickStart.txt    - a quick start guide to getting started with the YakIO
+                      library.
+                      
+abFiles.txt         - this file.
+
+acDeveloper.txt     - Some notes for programmers who might wish to contribute 
+                      code to the YakIO Library.
+
+BBC-Microbit_V1.5_Schematic.pdf - the schematic of the BBC microbit in 
+                      pdf form. This is from the Micro:Bit website and
+                      is reproduced here in the thought that it might be
+                      useful.
+                      
+nRF51822_reference_Manual.pdf - The BBC microbit V1 uses an nRF51822 CPU.
+                      This is the definitive reference manual for that CPU
+                      from Nordic Semiconductor.
