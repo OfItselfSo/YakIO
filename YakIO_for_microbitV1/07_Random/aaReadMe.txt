@@ -1,4 +1,4 @@
-The 02_BetterBlinky Example 
+The 07_Random Example 
 
 YakIO is an open source library and example compilation toolchain which 
 is intended to enable the creation C++ programs for the BBC micro:bit
@@ -15,11 +15,10 @@ project demonstrates some new features. You really should review each
 example project because they are cumulative. Techniques that are discussed
 in a prior example might not be commented on in subsequent examples.
 
-This folder contains the source code for the 02_BetterBlinky C++ program 
-which is designed to blink the center LED of the BBC micro:bit array. 
-However, rather than implementing all of the "blink" functionality in the 
-program main loop as was done in 01_Blinky, this example uses timers to 
-activate interrupts which perform the basic functionality. 
+This folder contains the source code for the 07_Random C++ program 
+which is designed to access the random number perpipheral on the 
+Nordic nRF51822 CPU. It uses this value to set the 5x5 LED array to a 
+rough 0-24 approximation of the random number value. 
 
 Other specific things demonstrated in this example code which you might 
 wish to look out for:
@@ -29,12 +28,9 @@ wish to look out for:
   2) The instantiation of YakIO library objects as class member variables
      so that the code executing in the callback functions has access to
      them. 
-  2) The creation and use of timers to arrange the execution of callback 
-     functions at periodic intervals.
-  4) The implementation of the special 1 micro second Heartbeat function 
-     to handle actions that require periodic execution. 
-  4) The ability to load patterns into the 5 x 5 LED array on the microbit
-  5) The use of get and set calls to toggle the state in the 5 x 5 LED array
+  2) The use of polling to obtain the new random number value.
+  4) Alternatively, the use of an interrupt driven callback function to 
+     obtain a new random number value as soon as it is ready.
 
 The home page for the YakIO library can be found at:
    http://www.OfItselfSo.com/YakIO
@@ -81,7 +77,7 @@ Things you need to know:
              |   | Objects              
              |   | Source              
              |
-             | 02_BetterBlinky
+             | 07_Random
      This is how it is structured when downloaded from the GitHub repo.
      
   5) The YakIO Objects directory should contain a full complement of .o files
@@ -103,7 +99,7 @@ Things you need to know:
 
   9) When ready, run the CompileProgram.bat script. It should complete without
      errors. You execute this file by opening a cmd or powershell prompt  
-     to the top of the 02_BetterBlinky directory and running the 
+     to the top of the 07_Random directory and running the 
      CompileProgram.bat script.
    
  10) The successful run of the CompileProgram.bat script will have left a 
@@ -112,7 +108,9 @@ Things you need to know:
      a drive in Windows Explorer. Then drag and drop the Main.hex file onto 
      the microbit. It should automatically load and run and, after a bit of
      manipulation of the LED on the 5 x 5 array you should see the software
-     settle down and the center LED should blink at a rate of once per second. 
+     settle down and the LEDs should light up indicating the range of the 
+     latest random number scaled down to a range of 0-24. This image will
+     change very 2 seconds.
      
  11) If you look at the size of the Main.hex file you will see that it is 
      very small. Actually, the size is half of what you see since the Intel 

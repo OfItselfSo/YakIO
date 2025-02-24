@@ -18,7 +18,7 @@
 #define YAKIO_H
 
 #define YAKIO_MAJOR_VERSION 0
-#define YAKIO_MINOR_VERSION 90
+#define YAKIO_MINOR_VERSION 91
 
 #define NULL 0
 #define BYTES_IN_REGISTER 4         // we are a 32 bit system

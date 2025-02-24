@@ -15,12 +15,12 @@ REM ¦COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHE
 REM ¦ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                         ¦
 REM +------------------------------------------------------------------------------------------------------------------------------+
 
-REM Simple batch file. We just compile each YakIO library object in turn. 
-REM Run this script in cmd or Powershell. Set your current directory to the same 
+REM Simple batch file. We just compile each YakIO library object in turn.
+REM Run this script in cmd or Powershell. Set your current directory to the same
 REM location as this file for this to work. Ultimately we are just producing
-REM a collection of .o object files for user code to link against. We do not 
-REM produce a library .a file because this messes up the weak aliases 
-REM defined in YakIO.cpp and the code will not execute properly. 
+REM a collection of .o object files for user code to link against. We do not
+REM produce a library .a file because this messes up the weak aliases
+REM defined in YakIO.cpp and the code will not execute properly.
 
 REM The arm-none-eabi-gcc.exe compiler should be on the path.
 
@@ -35,15 +35,15 @@ REM make sure our directories exist
 @if not exist %YAKIO_INCLUDE_DIR%\ (
   echo "YAKIO_INCLUDE_DIR >>>%YAKIO_INCLUDE_DIR%<<< does not exist"
   exit /b 1
-) 
+)
 @if not exist %YAKIO_SOURCE_DIR%\ (
   echo "YAKIO_SOURCE_DIR >>>%YAKIO_SOURCE_DIR%<<< does not exist"
   exit /b 1
-) 
+)
 @if not exist %YAKIO_OBJECT_DIR%\ (
   echo "YAKIO_OBJECT_DIR >>>%YAKIO_OBJECT_DIR%<<< does not exist"
   exit /b 1
-) 
+)
 
 REM clean out old object files
 del %YAKIO_OBJECT_DIR%\*.o
@@ -58,6 +58,8 @@ arm-none-eabi-gcc -I%YAKIO_INCLUDE_DIR% %YAKIO_COMPILE_FLAGS%  -c %YAKIO_SOURCE_
 arm-none-eabi-gcc -I%YAKIO_INCLUDE_DIR% %YAKIO_COMPILE_FLAGS%  -c %YAKIO_SOURCE_DIR%\YakIO_LEDARRAY.cpp -o %YAKIO_OBJECT_DIR%\YakIO_LEDARRAY.o
 @if %errorlevel% neq 0 exit /b %errorlevel%
 arm-none-eabi-gcc -I%YAKIO_INCLUDE_DIR% %YAKIO_COMPILE_FLAGS%  -c %YAKIO_SOURCE_DIR%\YakIO_TIMER.cpp -o %YAKIO_OBJECT_DIR%\YakIO_TIMER.o
+@if %errorlevel% neq 0 exit /b %errorlevel%
+arm-none-eabi-gcc -I%YAKIO_INCLUDE_DIR% %YAKIO_COMPILE_FLAGS%  -c %YAKIO_SOURCE_DIR%\YakIO_RNG.cpp -o %YAKIO_OBJECT_DIR%\YakIO_RNG.o
 @if %errorlevel% neq 0 exit /b %errorlevel%
 arm-none-eabi-gcc -I%YAKIO_INCLUDE_DIR% %YAKIO_COMPILE_FLAGS%  -c %YAKIO_SOURCE_DIR%\YakIO_Utils.cpp -o %YAKIO_OBJECT_DIR%\YakIO_Utils.o
 @if %errorlevel% neq 0 exit /b %errorlevel%

@@ -91,7 +91,7 @@ void Main::MainLoop(void)
         // #####
         // METHOD 2 - Set and Reset. This toggles pin 0 at 310 KHz. Not 
         // reading the GPIO register improves the speed. However, we do  
-        // have the the overhead of two function calls. Also note that 
+        // have the overhead of two function calls. Also note that 
         // we are passing in parameters on the calls. As you will see in
         // the next section, this really matters for speed.
  

@@ -30,7 +30,7 @@
 
         // set this so we know we have run through the constructor. Creating
         // objects on the heap will NOT run the constructor
-        isInitialised =1;
+        isInitialized =1;
 
         // set the address of the cnf register for this gpioPin
         // note that the gpioPin is an enum but the value of the
@@ -63,7 +63,7 @@
     unsigned int YakIO_GPIO::GetGPIOState(void)
     {
         // never operate if we are not initialised
-        if(isInitialised!=1) return 0;
+        if(isInitialized!=1) return 0;
 
         // get the current register state
         unsigned int registerState = (* (unsigned volatile *) (REGISTER_GPIO+GPIOREG_OFFSET_IN));
@@ -86,7 +86,7 @@
     void YakIO_GPIO::SetGPIOState(unsigned int gpioState)
     {
         // never operate if we are not initialised
-        if(isInitialised!=1) return;
+        if(isInitialized!=1) return;
 
         // set the output state
         if(gpioState==0)(*(unsigned volatile *) (REGISTER_GPIO+GPIOREG_OFFSET_OUTCLR)) = (0x01<<gpioPin);
@@ -105,7 +105,7 @@
     void YakIO_GPIO::SetGPIOStateHigh()
     {
         // never operate if we are not initialised
-        if(isInitialised!=1) return;
+        if(isInitialized!=1) return;
 
         // set the output state
         (*(unsigned volatile *) (REGISTER_GPIO+GPIOREG_OFFSET_OUTSET)) = (0x01<<gpioPin);
@@ -123,7 +123,7 @@
     void YakIO_GPIO::SetGPIOStateLow()
     {
         // never operate if we are not initialised
-        if(isInitialised!=1) return;
+        if(isInitialized!=1) return;
 
         // set the output state
         (*(unsigned volatile *) (REGISTER_GPIO+GPIOREG_OFFSET_OUTCLR)) = (0x01<<gpioPin);
@@ -140,7 +140,7 @@
     void YakIO_GPIO::ToggleGPIOState(void)
     {
         // never operate if we are not initialised
-        if(isInitialised!=1) return;
+        if(isInitialized!=1) return;
 
         if(GetGPIOState()==0) SetGPIOState(1);
         else SetGPIOState(0);
@@ -154,7 +154,7 @@
     void YakIO_GPIO::SetGPIODriveMode(GPIOPinDriveMode gpioDriveMode)
     {
         // never operate if we are not initialised
-        if(isInitialised!=1) return;
+        if(isInitialized!=1) return;
 
         // set the current register state
         (* (unsigned volatile *) (cnfRegisterAddress)) &= GPIO_CNF_REGISTER_DRIVEMODE_MASK;  // clear them all to 0
@@ -173,7 +173,7 @@
     GPIOPinDriveMode YakIO_GPIO::GetGPIODriveMode(void)
     {
         // never operate if we are not initialised
-        if(isInitialised!=1) return S0S1;
+        if(isInitialized!=1) return S0S1;
 
         // get the current register state
         unsigned int registerState = (* (unsigned volatile *) (cnfRegisterAddress));  // Get register
@@ -194,7 +194,7 @@
     void YakIO_GPIO::SetGPIOPullUpDown(GPIOPinPullUpDown gpioPullUpDown)
     {
         // never operate if we are not initialised
-        if(isInitialised!=1) return;
+        if(isInitialized!=1) return;
 
         // Pins 0,1,2,5,11 are all hardwired on the microbit PCB to pullup
         // so we do not change anything in the registers
@@ -221,7 +221,7 @@
     GPIOPinPullUpDown YakIO_GPIO::GetGPIOPullUpDown(void)
     {
         // never operate if we are not initialised
-        if(isInitialised!=1) return PullUpDownDisabled;
+        if(isInitialized!=1) return PullUpDownDisabled;
 
         // Pins 0,1,2,5,11 are all hardwired on the microbit PCB to pullup
         // so we report this state as that
@@ -247,7 +247,7 @@
     void YakIO_GPIO::SetGPIODir(GPIOPinDir gpioPinDir)
     {
         // never operate if we are not initialised
-        if(isInitialised!=1) return;
+        if(isInitialized!=1) return;
 
         // set the current register state
         (* (unsigned volatile *) (cnfRegisterAddress)) &= GPIO_CNF_REGISTER_DIRECTION_MASK;  // clear them all to 0
@@ -269,7 +269,7 @@
     GPIOPinDir YakIO_GPIO::GetGPIODir(void)
     {
         // never operate if we are not initialised
-        if(isInitialised!=1) return PinDirInput;
+        if(isInitialized!=1) return PinDirInput;
 
         // get the current register state
         unsigned int registerState = (* (unsigned volatile *) (cnfRegisterAddress));  // Get register
@@ -286,7 +286,7 @@
     void YakIO_GPIO::SetGPIOInputConnect(GPIOInputConnect gpioPinConnect)
     {
         // never operate if we are not initialised
-        if(isInitialised!=1) return;
+        if(isInitialized!=1) return;
 
         // set the current register state
         (* (unsigned volatile *) (cnfRegisterAddress)) &= GPIO_CNF_REGISTER_INPUTCONN_MASK;  // clear them all to 0
@@ -305,7 +305,7 @@
     GPIOInputConnect YakIO_GPIO::GetGPIOInputConnect(void)
     {
         // never operate if we are not initialised
-        if(isInitialised!=1) return PinInputBufferEna;
+        if(isInitialized!=1) return PinInputBufferEna;
 
         // get the current register state
         unsigned int registerState = (* (unsigned volatile *) (cnfRegisterAddress));  // Get register

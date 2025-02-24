@@ -142,7 +142,7 @@ class YakIO_GPIO
   private:
       unsigned int cnfRegisterAddress=0;
       enum GPIOPin gpioPin;
-      unsigned int isInitialised =0;
+      unsigned int isInitialized =0;
 
   public:
       // Constructor to initialize YakIO_GPIO object

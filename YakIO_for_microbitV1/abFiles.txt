@@ -23,8 +23,11 @@ microcontroller.
 06_deBounce         - Directory containing example code See the aaReadMe.txt 
                       in this directory for more information.
                       
+07_Random           - Directory containing example code See the aaReadMe.txt 
+                      in this directory for more information.
+                      
 YakIO               - The Directory containing the YakIO Library. It contains
-                      multiple subdirectories. See the the aaReadMe.txt 
+                      multiple subdirectories. See the aaReadMe.txt 
                       in this directory for more information.
                       
 aaQuickStart.txt    - a quick start guide to getting started with the YakIO
